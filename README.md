@@ -30,7 +30,7 @@ pip install tensorflow
 Clone the project
 
 ```bash
-  https://github.com/adivishnu-a/icho
+  git clone https://github.com/adivishnu-a/icho
 ```
 
 Go to the project directory
