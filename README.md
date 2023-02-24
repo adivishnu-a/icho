@@ -53,7 +53,7 @@ Run the program
 This program uses the webcam to track our face and is hence based on computer vision to detect and track human faces in a video stream or image sequence.
 
 Here's a general overview of how a face tracking tool might work:   
-- Face Detection: The first step is to detect the presence of human faces in the video stream or image sequence. This can be achieved using machine learning algorithms of Convolutional Neural Networks(CNN) such as Haar cascades, and we used OpenCV's DNN module
+- Face Detection: The first step is to detect the presence of human faces in the video stream or image sequence. This can be achieved using Convolutional Neural Networks(CNN) such as Haar cascades, and we used OpenCV's DNN module
 - Feature Extraction: After detecting the face, the next step is to extract the features of the face, such as the position and orientation of the eyes, nose, mouth, and other facial landmarks. This is done using facial landmark detection.
 - Face Tracking: With the features extracted, the system can now track the face as it moves within the video stream.
 - Face Recognition: If the system is designed for facial recognition, it can then use the extracted features to match the tracked face with a database of known faces. This involves comparing the features of the tracked face with those of the faces in the database to determine if there is a match.
