@@ -10,7 +10,7 @@ Introducing the volume adjustment assistant that adapts to your every move! Our 
 - Adjusts the volume according to those movements
 - Lowers the volume when the user needs to focus on his surrounding conversations
 - Sets the volume back to normal when user focuses on the screen
-- Controls volume of individual channels corresponding to the orientation of user's face (WIP)
+- Controls volume balance of individual left-right channels corresponding to the orientation of user's face (WIP)
 
 
 ## Run Locally
