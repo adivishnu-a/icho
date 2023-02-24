@@ -1,17 +1,16 @@
 from ctypes import cast, POINTER 
 from comtypes import CLSCTX_ALL 
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-
-devices = AudioUtilities.GetSpeakers() 
-interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None) 
-volume = cast(interface, POINTER(IAudioEndpointVolume)) 
-flag=0
-
 import cv2
 import numpy as np
 import math
 from face_detector import get_face_detector, find_faces
 from face_landmarks import get_landmark_model, detect_marks
+
+devices = AudioUtilities.GetSpeakers() 
+interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None) 
+volume = cast(interface, POINTER(IAudioEndpointVolume)) 
+flag=0
 
 def get_2d_points(img, rotation_vector, translation_vector, camera_matrix, val):
     """Return the 3D points present as 2D for making annotation box"""
