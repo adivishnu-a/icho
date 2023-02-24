@@ -13,7 +13,6 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 flag=0
 
 def get_2d_points(img, rotation_vector, translation_vector, camera_matrix, val):
-    """Return the 3D points present as 2D for making annotation box"""
     point_3d = []
     dist_coeffs = np.zeros((4,1))
     rear_size = val[0]
