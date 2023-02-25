@@ -63,7 +63,5 @@ You can run this software on any PC with an integrated or discrete webcam, and y
 
 ## Demo
 <!-- blank line -->
-<figure class="video_container">
-  <iframe src="https://drive.google.com/file/d/11-lcC1YhFEoAiufzTjsOvPk_oVFDw4St/preview" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+[Demo](https://drive.google.com/file/d/11-lcC1YhFEoAiufzTjsOvPk_oVFDw4St/preview)
 <!-- blank line -->
