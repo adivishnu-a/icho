@@ -1,8 +1,6 @@
 
 # icho - Intelligent Head Tracking Audio Experience
 
-![ezgif-4-f7e8f54f10](https://user-images.githubusercontent.com/95145136/221834389-86a8884f-b594-4877-88cd-8976637acc73.gif)
-
 <p align="center">
   <img src="https://user-images.githubusercontent.com/95145136/221834389-86a8884f-b594-4877-88cd-8976637acc73.gif" alt="animated" />
 </p>
