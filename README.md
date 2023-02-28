@@ -3,8 +3,6 @@
 
 Introducing the volume adjustment assistant that adapts to your every move! Our software uses facial recognition to track your face and adjust the volume of your device intelligently. Don't settle for outdated volume adjustment systems. Upgrade to our intelligent and intuitive technology today and enjoy a listening experience like no other!
 
-![](https://github.com/adivishnu-a/icho/blob/main/ezgif-4-f7e8f54f10.gif)
-
 
 ## Features
 
@@ -65,8 +63,9 @@ You can run this software on any PC with an integrated or discrete webcam, and y
 
 ## Demo
 <!-- blank line -->
-[Demo](https://drive.google.com/file/d/11-lcC1YhFEoAiufzTjsOvPk_oVFDw4St/preview)
-![](https://github.com/adivishnu-a/icho/blob/main/Resources/Demo%20Video.mp4)
+
+https://user-images.githubusercontent.com/95145136/221832999-e7d9cf4d-9932-42f6-85df-5b5ca197265d.mp4
+
 <!-- blank line -->
 
 
