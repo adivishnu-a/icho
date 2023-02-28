@@ -69,7 +69,13 @@ You can run this software on any PC with an integrated or discrete webcam, and y
 ## Demo
 <!-- blank line -->
 
-https://user-images.githubusercontent.com/95145136/221832999-e7d9cf4d-9932-42f6-85df-5b5ca197265d.mp4
+[Kumar Sashank](https://github.com/KumarSashank) with the Video Demo
+
+
+
+https://user-images.githubusercontent.com/95145136/221878529-505616e4-d0dc-4538-8dd9-0dd630e65e57.mp4
+
+
 
 <!-- blank line -->
 
