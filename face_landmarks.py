@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -5,9 +7,21 @@ from tensorflow import keras
 
 
 def get_landmark_model(saved_model='models/pose_model'):
+    """
+    Get the facial landmark model. 
+    Original repository: https://github.com/yinguobing/cnn-facial-landmark
 
-    #Model can be found at https://github.com/yinguobing/cnn-facial-landmark
-    
+    Parameters
+    ----------
+    saved_model : string, optional
+        Path to facial landmarks model. The default is 'models/pose_model'.
+
+    Returns
+    -------
+    model : Tensorflow model
+        Facial landmarks model
+
+    """
     #model = keras.models.load_model(saved_model)
     model = tf.saved_model.load(saved_model)
     return model
@@ -45,6 +59,7 @@ def get_square_box(box):
     return [left_x, top_y, right_x, bottom_y]
 
 def move_box(box, offset):
+        """Move the box to direction specified by vector offset"""
         left_x = box[0] + offset[0]
         top_y = box[1] + offset[1]
         right_x = box[2] + offset[0]
@@ -52,6 +67,24 @@ def move_box(box, offset):
         return [left_x, top_y, right_x, bottom_y]
 
 def detect_marks(img, model, face):
+    """
+    Find the facial landmarks in an image from the faces
+
+    Parameters
+    ----------
+    img : np.uint8
+        The image in which landmarks are to be found
+    model : Tensorflow model
+        Loaded facial landmark model
+    face : list
+        Face coordinates (x, y, x1, y1) in which the landmarks are to be found
+
+    Returns
+    -------
+    marks : numpy array
+        facial landmark points
+
+    """
 
     offset_y = int(abs((face[3] - face[1]) * 0.1))
     box_moved = move_box(face, [0, offset_y])
@@ -88,7 +121,23 @@ def detect_marks(img, model, face):
     return marks
 
 def draw_marks(image, marks, color=(0, 255, 0)):
-    
+    """
+    Draw the facial landmarks on an image
+
+    Parameters
+    ----------
+    image : np.uint8
+        Image on which landmarks are to be drawn.
+    marks : list or numpy array
+        Facial landmark points
+    color : tuple, optional
+        Color to which landmarks are to be drawn with. The default is (0, 255, 0).
+
+    Returns
+    -------
+    None.
+
+    """
     for mark in marks:
         cv2.circle(image, (mark[0], mark[1]), 2, color, -1, cv2.LINE_AA)
     

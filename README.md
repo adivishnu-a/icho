@@ -42,7 +42,7 @@ Go to the project directory
 Run the program
 
 ```bash
-  python head_pose_estimation.py
+  python main.py
 ```
 
 
