@@ -64,7 +64,9 @@ You can run this software on any PC with an integrated or discrete webcam, and y
 ## Demo
 <!-- blank line -->
 [Demo](https://drive.google.com/file/d/11-lcC1YhFEoAiufzTjsOvPk_oVFDw4St/preview)
+![](https://github.com/adivishnu-a/icho/blob/main/Resources/Demo%20Video.mp4)
 <!-- blank line -->
+
 
 <p align="center"> 
   Visitor count<br>
