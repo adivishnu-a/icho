@@ -68,5 +68,5 @@ You can run this software on any PC with an integrated or discrete webcam, and y
 
 <p align="center"> 
   Visitor count<br>
-  <img src="https://profile-counter.glitch.me/atharva-narkhede-python/count.svg" />
+  <img src="https://profile-counter.glitch.me/adivishnu-a-icho/count.svg" />
 </p>
