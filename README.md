@@ -50,6 +50,15 @@ Run the program
   python main.py
 ```
 
+## Demo
+
+[Kumar Sashank](https://github.com/KumarSashank) with the Video Demo
+
+
+https://user-images.githubusercontent.com/95145136/221878529-505616e4-d0dc-4538-8dd9-0dd630e65e57.mp4
+
+
+[Adi Vishnu's](https://github.com/adivishnu-a) post on [LinkedIn](https://www.linkedin.com/posts/adi-vishnu-avula_nexttechlab-9hacks-scienceexpo-activity-7036301316339470337-Kcjz)
 
 ## FAQ
 
@@ -66,18 +75,11 @@ Here's a general overview of how a face tracking tool might work:
 #### Where can I run this? Can I use it on my smartphone?
 You can run this software on any PC with an integrated or discrete webcam, and you can do it by following the instructions provided in the above section. This requires the webcam to be run continuously for the program to function. And this does not work on a smartphone.
 
-## Demo
-<!-- blank line -->
+#### What are the current limitations of this project?
+At its current stage, the program functions properly when detecting a single face in front of the camera. However, there are ongoing developments aimed at enhancing the project's capabilities to function effectively in crowded scenarios.
 
-[Kumar Sashank](https://github.com/KumarSashank) with the Video Demo
-
-
-
-https://user-images.githubusercontent.com/95145136/221878529-505616e4-d0dc-4538-8dd9-0dd630e65e57.mp4
-
-
-
-<!-- blank line -->
+#### How can I report a bug or suggest a new feature for this project?
+You can report a bug or suggest a new feature by opening an issue on the project's GitHub repository.
 
 
 <p align="center"> 
