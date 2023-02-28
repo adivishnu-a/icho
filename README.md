@@ -1,6 +1,9 @@
 
 # icho - Intelligent Head Tracking Audio Experience
 
+![ezgif-4-f7e8f54f10](https://user-images.githubusercontent.com/95145136/221834389-86a8884f-b594-4877-88cd-8976637acc73.gif)
+
+
 Introducing the volume adjustment assistant that adapts to your every move! Our software uses facial recognition to track your face and adjust the volume of your device intelligently. Don't settle for outdated volume adjustment systems. Upgrade to our intelligent and intuitive technology today and enjoy a listening experience like no other!
 
 ![](https://github.com/adivishnu-a/icho/blob/main/ezgif-4-f7e8f54f10.gif)
