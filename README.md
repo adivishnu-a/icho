@@ -10,7 +10,7 @@ Introducing the volume adjustment assistant that adapts to your every move! Our 
 - Adjusts the volume according to those movements
 - Lowers the volume when the user needs to focus on his surrounding conversations
 - Sets the volume back to normal when user focuses on the screen
-- Controls volume balance of individual left-right channels corresponding to the orientation of user's face (WIP)
+- Controls volume balance of individual left-right channels corresponding to the orientation of user's face
 
 
 ## Run Locally
@@ -65,3 +65,8 @@ You can run this software on any PC with an integrated or discrete webcam, and y
 <!-- blank line -->
 [Demo](https://drive.google.com/file/d/11-lcC1YhFEoAiufzTjsOvPk_oVFDw4St/preview)
 <!-- blank line -->
+
+<p align="center"> 
+  Visitor count<br>
+  <img src="https://profile-counter.glitch.me/atharva-narkhede-python/count.svg" />
+</p>
