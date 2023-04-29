@@ -19,20 +19,20 @@ current = volume.GetMasterVolumeLevel()
 while cap.isOpened():
     success, image = cap.read()
 
-    # Flip the image horizontally for a later selfie-view display
-    # Also convert the color space from BGR to RGB
+    # Flip the image horizontally for a mirrored view
+    # Convert the color space from BGR to RGB
     image = cv2.cvtColor(cv2.flip(image, 1), cv2.COLOR_BGR2RGB)
 
-    # To improve performance
+    # To improve performance, set this as false
     image.flags.writeable = False
 
-    # Get the result
+    # Process the image using the facemesh model and get the result
     results = face_mesh.process(image)
 
-    # To improve performance
+    # Now, we can set the image back as writeable
     image.flags.writeable = True
 
-    # Convert the color space from RGB to BGR
+    # Revert the color space from RGB to BGR
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
     img_h, img_w, img_c = image.shape
@@ -79,38 +79,34 @@ while cap.isOpened():
 
             # Get angles
             angles, mtxR, mtxQ, Qx, Qy, Qz = cv2.RQDecomp3x3(rmat)
-
-            # Get the y rotation degree
             x = angles[0] * 360
             y = angles[1] * 360
 
-            # print(y)
-
-            # See where the user's head tilting
+            # Now, based on the tilt angle, set the direction and make necessary changes to the volume
             if y < -10:
-                text = "Looking Left"
+                text = "Looking Left"   #user looking left, so volume focus right-side
                 if flag == 0:
                     volume.SetChannelVolumeLevel(0, current - 5.0, None)  # Left
                     volume.SetChannelVolumeLevel(1, current + 5.0, None)  # Right
                     flag = 1
             elif y > 10:
-                text = "Looking Right"
+                text = "Looking Right"  #user looking right, so volume focus left-side
                 if flag == 0:
                     volume.SetChannelVolumeLevel(0, current + 5.0, None)  # Left
                     volume.SetChannelVolumeLevel(1, current - 5.0, None)  # Right
                     flag = 1
             elif x < -10:
-                text = "Looking Down"
+                text = "Looking Down"   #user looking down, so volume focus decreased
                 if flag == 0:
                     volume.SetMasterVolumeLevel(current - 6.0, None)
                     flag = 1
             elif x > 10:
-                text = "Looking Up"
+                text = "Looking Up"     #user looking up, so volume focus decreased
                 if flag == 0:
                     volume.SetMasterVolumeLevel(current - 6.0, None)
                     flag = 1
             else:
-                text = "Forward"
+                text = "Forward"        #user looking forward, so volume focus increased and equalised
                 if flag == 1:
                     volume.SetMasterVolumeLevel(current, None)
                     volume.SetChannelVolumeLevel(0, current, None)  # Left
@@ -125,7 +121,7 @@ while cap.isOpened():
 
             cv2.line(image, p1, p2, (255, 0, 0), 2)
 
-            # Add the text on the image
+            # Display the tilt direction on the image
             cv2.putText(image, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     cv2.imshow('Head Pose Estimation', image)
