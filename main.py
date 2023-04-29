@@ -12,7 +12,7 @@ cap = cv2.VideoCapture(0)
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
 volume = cast(interface, POINTER(IAudioEndpointVolume))
-flag=0
+flag = 0
 
 current = volume.GetMasterVolumeLevel()
 
@@ -26,7 +26,7 @@ while cap.isOpened():
     # To improve performance, set this as false
     image.flags.writeable = False
 
-    # Process the image using the facemesh model and get the result
+    # Process the image using the face_mesh model and get the result
     results = face_mesh.process(image)
 
     # Now, we can set the image back as writeable
@@ -84,29 +84,29 @@ while cap.isOpened():
 
             # Now, based on the tilt angle, set the direction and make necessary changes to the volume
             if y < -10:
-                text = "Looking Left"   #user looking left, so volume focus right-side
+                text = "Looking Left"   # user looking left, so volume focus right-side
                 if flag == 0:
                     volume.SetChannelVolumeLevel(0, current - 5.0, None)  # Left
                     volume.SetChannelVolumeLevel(1, current + 5.0, None)  # Right
                     flag = 1
             elif y > 10:
-                text = "Looking Right"  #user looking right, so volume focus left-side
+                text = "Looking Right"  # user looking right, so volume focus left-side
                 if flag == 0:
                     volume.SetChannelVolumeLevel(0, current + 5.0, None)  # Left
                     volume.SetChannelVolumeLevel(1, current - 5.0, None)  # Right
                     flag = 1
             elif x < -10:
-                text = "Looking Down"   #user looking down, so volume focus decreased
+                text = "Looking Down"   # user looking down, so volume focus decreased
                 if flag == 0:
                     volume.SetMasterVolumeLevel(current - 6.0, None)
                     flag = 1
             elif x > 10:
-                text = "Looking Up"     #user looking up, so volume focus decreased
+                text = "Looking Up"     # user looking up, so volume focus decreased
                 if flag == 0:
                     volume.SetMasterVolumeLevel(current - 6.0, None)
                     flag = 1
             else:
-                text = "Forward"        #user looking forward, so volume focus increased and equalised
+                text = "Forward"    # user looking forward, so volume focus increased and equalised
                 if flag == 1:
                     volume.SetMasterVolumeLevel(current, None)
                     volume.SetChannelVolumeLevel(0, current, None)  # Left
