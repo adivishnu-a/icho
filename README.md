@@ -77,7 +77,6 @@ Here's a general overview of how our face tracking tool works:
 - Get the 2D and 3D coordinates of the detected landmarks.
 - Solve Perspective-n-Point (PnP) to estimate the pose of the head.
 - Calculate the rotational matrix and use it to calculate the Euler angles of the head pose.
-- Draw a line from the nose tip to the projected 3D point to show the direction in which the person is looking.
 - Display the resulting frame with the head direction and the text showing where the person is looking.
 
 And here's how our volume adjustment mechanism works:
