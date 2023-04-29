@@ -19,6 +19,7 @@ Introducing the volume adjustment assistant that adapts to your every move! Our 
 
 
 ## Run Locally
+Recommended Interpreter: Python 3.10
 
 Install Dependencies
 
