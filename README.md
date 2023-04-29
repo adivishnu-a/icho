@@ -68,11 +68,21 @@ https://user-images.githubusercontent.com/95145136/221878529-505616e4-d0dc-4538-
 
 This program uses the webcam to track our face and is hence based on computer vision to detect and track human faces in a video stream or image sequence.
 
-Here's a general overview of how a face tracking tool might work:   
-- Face Detection: The first step is to detect the presence of human faces in the video stream or image sequence. This can be achieved using Convolutional Neural Networks(CNN) such as Haar cascades, and we used OpenCV's DNN module
-- Feature Extraction: After detecting the face, the next step is to extract the features of the face, such as the position and orientation of the eyes, nose, mouth, and other facial landmarks. This is done using facial landmark detection.
-- Face Tracking: With the features extracted, the system can now track the face as it moves within the video stream.
-- Face Recognition: If the system is designed for facial recognition, it can then use the extracted features to match the tracked face with a database of known faces. This involves comparing the features of the tracked face with those of the faces in the database to determine if there is a match.
+Here's a general overview of how our face tracking tool works:   
+- Create a face_mesh instance from the mediapipe library that is responsible for detecting the landmarks on the face.
+- Create a VideoCapture instance from OpenCV to capture the video from the camera.
+- Read each frame from the video and convert it to the RGB color space.
+- Detect the landmarks on the face using the face_mesh instance.
+- Get the 2D and 3D coordinates of the detected landmarks.
+- Solve Perspective-n-Point (PnP) to estimate the pose of the head.
+- Calculate the rotational matrix and use it to calculate the Euler angles of the head pose.
+- Draw a line from the nose tip to the projected 3D point to show the direction in which the person is looking.
+- Display the resulting frame with the head direction and the text showing where the person is looking.
+
+And here's how our volume adjustment mechanism works:
+- Get the speakers' device and set the interface to control the volume from the pycaw library.
+- Get the current master volume level using GetMasterVolumeLevel().
+- Based on the head movement, adjust the volume level using the SetMasterVolumeLevel or SetChannelVolumeLevel methods.
 
 #### Where can I run this? Can I use it on my smartphone?
 You can run this software on any PC with an integrated or discrete webcam, and you can do it by following the instructions provided in the above section. This requires the webcam to be run continuously for the program to function. And this does not work on a smartphone.
