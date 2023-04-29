@@ -23,12 +23,10 @@ Introducing the volume adjustment assistant that adapts to your every move! Our 
 Install Dependencies
 
 ```bash
-pip install ctypes
 pip install comtypes
 pip install pycaw
 pip install opencv-python
 pip install numpy
-pip install tensorflow
 ```
 
 
