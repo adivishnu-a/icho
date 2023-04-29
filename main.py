@@ -113,14 +113,6 @@ while cap.isOpened():
                     volume.SetChannelVolumeLevel(1, current, None)  # Right
                     flag = 0
 
-            # Display the nose direction
-            nose_3d_projection, jacobian = cv2.projectPoints(nose_3d, rot_vec, trans_vec, cam_matrix, dist_matrix)
-
-            p1 = (int(nose_2d[0]), int(nose_2d[1]))
-            p2 = (int(nose_3d_projection[0][0][0]), int(nose_3d_projection[0][0][1]))
-
-            cv2.line(image, p1, p2, (255, 0, 0), 2)
-
             # Display the tilt direction on the image
             cv2.putText(image, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
