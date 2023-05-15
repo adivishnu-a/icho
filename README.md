@@ -17,7 +17,7 @@ Introducing the volume adjustment assistant that adapts to your every move! Our 
 - Sets the volume back to normal when user focuses on the screen
 - Controls volume balance of individual left-right channels corresponding to the orientation of user's face
 
-Show some love by starring the repo ⭐
+Show some ❤️ by starring the repository! ⭐️
 ## Run Locally
 Recommended Interpreter: Python 3.10
 
