@@ -8,6 +8,12 @@
 
 Introducing the volume adjustment assistant that adapts to your every move! Our software uses facial recognition to track your face and adjust the volume of your device intelligently. Don't settle for outdated volume adjustment systems. Upgrade to our intelligent and intuitive technology today and enjoy a listening experience like no other!
 
+- [Features](#features)
+- [Run Locally](#run-locally)
+- [Demo](#demo)
+- [FAQ](#faq)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -93,6 +99,13 @@ At its current stage, the program functions properly when detecting a single fac
 #### How can I report a bug or suggest a new feature for this project?
 You can report a bug or suggest a new feature by opening an issue on the project's GitHub repository.
 
+## Contributing
+
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+
+## License  
+
+This project is licensed under the [MIT License](LICENSE).
 
 <p align="center"> 
   Visitor count<br>
