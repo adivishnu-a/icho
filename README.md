@@ -21,7 +21,7 @@ Introducing the volume adjustment assistant that adapts to your every move! Our 
 ## Run Locally
 Recommended Interpreter: Python 3.10
 
-Install Dependencies
+- Install Dependencies
 
 ```bash
 pip install comtypes
@@ -31,20 +31,19 @@ pip install mediapipe
 pip install numpy
 ```
 
-
-Clone the project
+- Clone the project
 
 ```bash
   git clone https://github.com/adivishnu-a/icho
 ```
 
-Go to the project directory
+- Go to the project directory
 
 ```bash
   cd icho
 ```
 
-Run the program
+- Run the program
 
 ```bash
   python main.py
