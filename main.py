@@ -116,7 +116,7 @@ while cap.isOpened():
             # Display the tilt direction on the image
             cv2.putText(image, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-    cv2.imshow('Head Pose Estimation', image)
+    cv2.imshow('iCho', image)
 
     if cv2.waitKey(5) & 0xFF == 27:
         break
