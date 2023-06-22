@@ -34,7 +34,6 @@ pip install comtypes
 pip install pycaw
 pip install opencv-python
 pip install mediapipe
-pip install numpy
 ```
 
 - Clone the project
