@@ -1,3 +1,4 @@
+import math
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -15,6 +16,22 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 flag = 0
 
 current = volume.GetMasterVolumeLevel()
+
+def db_to_linear(dB):
+    return 10 ** (dB / 30)
+
+def linear_to_db(volume):
+    return 30 * math.log10(volume)
+
+max_volume=db_to_linear(current)
+if(max_volume<0.73):
+    max_volume+=0.25
+else:
+    exit
+
+max_volume=linear_to_db(max_volume)
+current_volume=db_to_linear(current)
+
 
 while cap.isOpened():
     success, image = cap.read()
@@ -84,30 +101,41 @@ while cap.isOpened():
 
             # Now, based on the tilt angle, set the direction and make necessary changes to the volume
             text=""
-            if current<-0.15 and current>-80:
-                if y < -10:
-                    text = "Looking Left"   # user looking left, so volume focus right-side
-                    volume.SetChannelVolumeLevel(0, current - (-y / 10), None)  # Left
-                    volume.SetChannelVolumeLevel(1, current + (-y / 10), None)  # Right
-                elif y > 10:
-                    text = "Looking Right"  # user looking right, so volume focus left-side
-                    volume.SetChannelVolumeLevel(0, current + (y / 10), None)  # Left
-                    volume.SetChannelVolumeLevel(1, current - (y / 10), None)  # Right
-                elif x < -10:
-                    text = "Looking Down"   # user looking down, so volume focus decreased
-                    volume.SetMasterVolumeLevel(current - 6.0, None)
-                elif x > 10:
-                    text = "Looking Up"     # user looking up, so volume focus decreased
-                    volume.SetMasterVolumeLevel(current - 6.0, None)
-                else:
-                    text = "Forward"    # user looking forward, so volume focus increased and equalised
-                    volume.SetMasterVolumeLevel(current, None)
-                    volume.SetChannelVolumeLevel(0, current, None)  # Left
-                    volume.SetChannelVolumeLevel(1, current, None)  # Right
+            #if current<-0.15 and current>max_volume:
+            if y < -10:
+                text = "Looking Left"   # user looking left, so volume focus right-side
+                right_y=y*0.01
+                right_y+=current_volume
+                left_y=1.0-right_y
+                left_y=linear_to_db(left_y)
+                right_y=linear_to_db(right_y)
 
-            # Display the tilt direction on the image
-            text=text+"     "+str(y)
-            cv2.putText(image, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                volume.SetChannelVolumeLevel(1, left_y, None)  # Left
+                volume.SetChannelVolumeLevel(0, right_y, None)  # Right
+            elif y > 10:
+                text = "Looking Right"  # user looking right, so volume focus left-side
+                left_y = -y * 0.01
+                left_y += current_volume
+                right_y = 1.0 - left_y
+                left_y = linear_to_db(left_y)
+                right_y = linear_to_db(right_y)
+                volume.SetChannelVolumeLevel(1, left_y, None)      # Left
+                volume.SetChannelVolumeLevel(0, right_y, None)     # Right
+            #elif x < -10:
+                #text = "Looking Down"   # user looking down, so volume focus decreased
+                #volume.SetMasterVolumeLevel(current - 6.0, None)
+            #elif x > 10:
+                #text = "Looking Up"     # user looking up, so volume focus decreased
+                #volume.SetMasterVolumeLevel(current - 6.0, None)
+            else:
+                text = "Forward"    # user looking forward, so volume focus increased and equalised
+                volume.SetMasterVolumeLevel(current, None)
+                volume.SetChannelVolumeLevel(0, current, None)  # Left
+                volume.SetChannelVolumeLevel(1, current, None)  # Right
+
+        # Display the tilt direction on the image
+        text=text+"     "+str(y)
+        cv2.putText(image, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     cv2.imshow('iCho', image)
 
