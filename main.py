@@ -15,6 +15,8 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 flag = 0
 
 current = volume.GetMasterVolumeLevel()
+volume.SetChannelVolumeLevelScalar(0, 0.5, None)  
+volume.SetChannelVolumeLevelScalar(1, 0.5, None)  
 
 while cap.isOpened():
     success, image = cap.read()
@@ -55,28 +57,17 @@ while cap.isOpened():
             angles, mtxR, mtxQ, Qx, Qy, Qz = cv2.RQDecomp3x3(rmat)
             x = angles[0] * 360
             y = angles[1] * 360
+
+
+            val=0
+            if y>0:
+                val = min(0.485, y/100)
+            else:
+                val = max(-0.485, y/100)
             
             text=""
-            if y < -10:
-                text = "Looking Left"   
-                volume.SetChannelVolumeLevelScalar(0, (0.5 + y/100), None)  
-                volume.SetChannelVolumeLevelScalar(1, (0.5 - y/100), None)  
-            elif y > 10:
-                text = "Looking Right"  
-                volume.SetChannelVolumeLevelScalar(0, (0.5 + y/100), None)  
-                volume.SetChannelVolumeLevelScalar(1, (0.5 - y/100), None)  
-            elif x < -10:
-                text = "Looking Down"   
-                volume.SetMasterVolumeLevelScalar(0.5, None)
-            elif x > 10:
-                text = "Looking Up"     
-                volume.SetMasterVolumeLevelScalar(0.5, None)
-            else:
-                text = "Forward"    
-                volume.SetChannelVolumeLevelScalar(0, 0.5, None)  
-                volume.SetChannelVolumeLevelScalar(1, 0.5, None)  
-
-            text=text+"     "
+            volume.SetChannelVolumeLevelScalar(0, (0.5 + val), None)  
+            volume.SetChannelVolumeLevelScalar(1, (0.5 - val), None)
             cv2.putText(image, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     cv2.imshow('iCho', image)
